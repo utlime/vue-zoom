@@ -30,6 +30,7 @@
     "@storybook/vue": "^5.0.6",
     "babel-loader": "^8.0.5",
     "babel-preset-vue": "^2.0.2",
+    "commitizen": "^3.0.7",
     "prettier": "^1.16.4",
     "typescript": "^3.4.2",
     "vue": "^2.6.10",

@@ -43,6 +43,8 @@ export default {
       if (typeof scale === 'string') {
         if (scale.indexOf('px') !== -1 && this.container.width != null) {
           scale = Number(scale.replace('px', '')) / this.container.width;
+        } else {
+          scale = Number(scale);
         }
       }
 
