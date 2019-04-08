@@ -1,0 +1,7 @@
+.idea/
+.storybook/
+node_modules/
+stories/
+src/
+.gitignore
+tsconfig.json
