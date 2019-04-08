@@ -1,0 +1,45 @@
+{
+  "name": "@utlime/vue-zoom",
+  "version": "0.1.0",
+  "description": "zoom component for vue",
+  "main": "dist/index.js",
+  "types": "types",
+  "scripts": {
+    "build": "tsc",
+    "build:module": "tsc --module ES6 --watch",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook",
+    "prepublish": "npm run build",
+    "commit": "git-cz"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/utlime/vue-zoom"
+  },
+  "keywords": [
+    "vue",
+    "zoom"
+  ],
+  "author": "Alex Vysotsky <utlime@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.4.3",
+    "@storybook/addon-actions": "^5.0.6",
+    "@storybook/addon-links": "^5.0.6",
+    "@storybook/addons": "^5.0.6",
+    "@storybook/vue": "^5.0.6",
+    "babel-loader": "^8.0.5",
+    "babel-preset-vue": "^2.0.2",
+    "prettier": "^1.16.4",
+    "typescript": "^3.4.2",
+    "vue": "^2.6.10",
+    "vue-loader": "^15.7.0",
+    "vue-template-compiler": "^2.6.10"
+  },
+  "prettier": {
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "all"
+  },
+  "dependencies": {}
+}
