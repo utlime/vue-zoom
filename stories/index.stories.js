@@ -2,7 +2,7 @@
 
 import { storiesOf } from '@storybook/vue';
 
-import VueZoom from '../dist/VueZoom';
+import { VueZoom } from '../src/index';
 import image from './image.svg';
 
 storiesOf('VueZoom', module).add('with image', () => ({
