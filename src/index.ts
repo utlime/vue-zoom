@@ -18,7 +18,7 @@ const VueZoom = {
       type: [String, Number],
       default: 1.5,
       validator: scale =>
-        (typeof scale === 'number' && !Number.isNaN(scale)) ||
+        (typeof scale === 'number' && !isNaN(scale)) ||
         (typeof scale === 'string' && /^\d+(px)?$/.test(scale)),
     },
   },
@@ -48,7 +48,7 @@ const VueZoom = {
         }
       }
 
-      if (typeof scale !== 'number' || Number.isNaN(scale)) {
+      if (typeof scale !== 'number' || isNaN(scale)) {
         scale = 1.5;
       }
 
