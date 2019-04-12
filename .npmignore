@@ -3,5 +3,7 @@
 node_modules/
 stories/
 src/
+storybook-static/
+types/
 .gitignore
 tsconfig.json
