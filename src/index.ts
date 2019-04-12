@@ -8,6 +8,9 @@ const VueZoom = {
           mousemove: this.onMouseMove,
           mouseenter: this.onMouseEnter,
           mouseleave: this.onMouseLeave,
+          touchstart: this.onTouchStart,
+          touchmove: this.onTouchMove,
+          touchend: this.onTouchEnd,
         },
       },
       [h('div', { style: this.contentStyles }, [this.$slots.default])],
@@ -21,6 +24,10 @@ const VueZoom = {
         (typeof scale === 'number' && !isNaN(scale)) ||
         (typeof scale === 'string' && /^\d+(px)?$/.test(scale)),
     },
+    touch: {
+      type: Boolean,
+      default: false,
+    }
   },
   data: () => ({
     isEnabled: false,
@@ -57,8 +64,8 @@ const VueZoom = {
     computedOrigin() {
       const { x = 0, y = 0, width, height } = this.container;
 
-      const originX = Math.round((x / width) * 1000) / 10;
-      const originY = Math.round((y / height) * 1000) / 10;
+      const originX = Math.round((Math.min(Math.max(x, 0), width) / width) * 1000) / 10;
+      const originY = Math.round((Math.min(Math.max(y, 0), height) / height) * 1000) / 10;
 
       return { originX, originY };
     },
@@ -83,9 +90,39 @@ const VueZoom = {
       this.container.width = e.target.clientWidth;
       this.container.height = e.target.clientHeight;
     },
-    onMouseLeave(e) {
+    onMouseLeave() {
       this.isEnabled = false;
     },
+    onTouchStart(e) {
+      e.preventDefault();
+
+      if (!this.touch) {
+        return;
+      }
+
+      this.isEnabled = true;
+      this.container.width = e.target.clientWidth;
+      this.container.height = e.target.clientHeight;
+    },
+    onTouchEnd(e) {
+      e.preventDefault();
+
+      if (!this.touch) {
+        return;
+      }
+
+      this.isEnabled = false;
+    },
+    onTouchMove(e) {
+      e.preventDefault();
+
+      if (!this.touch) {
+        return;
+      }
+
+      this.container.x = e.touches[0].pageX - e.touches[0].target.offsetLeft;
+      this.container.y = e.touches[0].pageY - e.touches[0].target.offsetTop;
+    }
   },
 };
 
