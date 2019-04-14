@@ -1,5 +1,3 @@
-/* eslint-disable react/react-in-jsx-scope, react/no-this-in-sfc */
-
 import { storiesOf } from '@storybook/vue';
 
 import { VueZoom } from '../src';
@@ -51,4 +49,24 @@ storiesOf('VueZoom with text', module)
       </div>`,
   }));
 
-/* eslint-enable react/react-in-jsx-scope */
+storiesOf('VueZoom with touch', module)
+  .add('default scale(1.5)', () => ({
+    components: { VueZoom },
+    data: () => ({ image }),
+    template: '<vue-zoom :touch="true"><img :src="image" /></vue-zoom>',
+  }))
+  .add('custom scale 3', () => ({
+    components: { VueZoom },
+    data: () => ({ image, scale: 3 }),
+    template: '<vue-zoom :touch="true" :scale="scale"><img :src="image" /></vue-zoom>',
+  }))
+  .add('fixed scale 600px', () => ({
+    components: { VueZoom },
+    data: () => ({ image, scale: '600px' }),
+    template: `
+      <div style="width: 300px">
+        <vue-zoom :touch="true" :scale="scale">
+          <img :src="image" />
+        </vue-zoom>
+      </div>`,
+  }));
