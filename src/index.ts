@@ -21,13 +21,12 @@ const VueZoom = {
       type: [String, Number],
       default: 1.5,
       validator: scale =>
-        (typeof scale === 'number' && !isNaN(scale)) ||
-        (typeof scale === 'string' && /^\d+(px)?$/.test(scale)),
+        (typeof scale === 'number' && !isNaN(scale)) || (typeof scale === 'string' && /^\d+(px)?$/.test(scale)),
     },
     touch: {
       type: Boolean,
       default: false,
-    }
+    },
   },
   data: () => ({
     isEnabled: false,
@@ -122,7 +121,7 @@ const VueZoom = {
 
       this.container.x = e.touches[0].pageX - e.touches[0].target.offsetLeft;
       this.container.y = e.touches[0].pageY - e.touches[0].target.offsetTop;
-    }
+    },
   },
 };
 
