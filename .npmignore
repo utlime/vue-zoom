@@ -7,3 +7,4 @@ storybook-static/
 types/
 .gitignore
 tsconfig.json
+.editorconfig
