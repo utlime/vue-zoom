@@ -30,6 +30,7 @@ const VueZoom = {
   },
   data: () => ({
     isEnabled: false,
+    isTouchEvent: false,
     container: {
       x: null,
       y: null,
@@ -81,19 +82,31 @@ const VueZoom = {
   },
   methods: {
     onMouseMove(e) {
+      if (this.isTouchEvent) {
+        return;
+      }
+
       this.container.x = e.offsetX;
       this.container.y = e.offsetY;
     },
     onMouseEnter(e) {
+      if (this.isTouchEvent) {
+        return;
+      }
+
       this.isEnabled = true;
       this.container.width = e.target.clientWidth;
       this.container.height = e.target.clientHeight;
     },
     onMouseLeave() {
+      if (this.isTouchEvent) {
+        return;
+      }
+
       this.isEnabled = false;
     },
     onTouchStart(e) {
-      e.preventDefault();
+      this.isTouchEvent = true;
 
       if (!this.touch) {
         return;
@@ -103,8 +116,8 @@ const VueZoom = {
       this.container.width = e.target.clientWidth;
       this.container.height = e.target.clientHeight;
     },
-    onTouchEnd(e) {
-      e.preventDefault();
+    onTouchEnd() {
+      this.isTouchEvent = true;
 
       if (!this.touch) {
         return;
@@ -113,7 +126,7 @@ const VueZoom = {
       this.isEnabled = false;
     },
     onTouchMove(e) {
-      e.preventDefault();
+      this.isTouchEvent = true;
 
       if (!this.touch) {
         return;
