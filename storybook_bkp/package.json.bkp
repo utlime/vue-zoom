@@ -1,0 +1,56 @@
+{
+  "name": "@utlime/vue-zoom",
+  "version": "1.1.4",
+  "description": "zoom component for vue",
+  "main": "dist/index.js",
+  "types": "types",
+  "scripts": {
+    "build": "tsc",
+    "storybook": "start-storybook -p 6006",
+    "storybook:deploy": "storybook-to-ghpages",
+    "prepublish": "npm run build",
+    "commit": "git-cz"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/utlime/vue-zoom"
+  },
+  "keywords": [
+    "vue",
+    "zoom"
+  ],
+  "author": "Alex Vysotsky <utlime@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.8.7",
+    "@storybook/addon-actions": "^5.3.17",
+    "@storybook/addon-info": "^5.3.17",
+    "@storybook/addon-links": "^5.3.17",
+    "@storybook/addon-storysource": "^5.3.17",
+    "@storybook/addons": "^5.3.17",
+    "@storybook/storybook-deployer": "^2.8.3",
+    "@storybook/vue": "^5.3.17",
+    "@types/storybook__react": "^4.0.2",
+    "awesome-typescript-loader": "^5.2.1",
+    "babel-loader": "^8.0.6",
+    "babel-preset-vue": "^2.0.2",
+    "commitizen": "^3.1.2",
+    "prettier": "^1.19.1",
+    "react-docgen-typescript-loader": "^3.7.1",
+    "typescript": "^3.8.3",
+    "vue": "^2.6.11",
+    "vue-loader": "^15.9.0",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "prettier": {
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "all"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
+    }
+  },
+  "dependencies": {}
+}
