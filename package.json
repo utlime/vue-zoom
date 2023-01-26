@@ -29,7 +29,7 @@
     "@storybook/addon-storysource": "^5.3.17",
     "@storybook/addons": "^5.3.17",
     "@storybook/storybook-deployer": "^2.8.3",
-    "@storybook/vue": "^5.3.17",
+    "@storybook/vue": "^6.5.15",
     "@types/storybook__react": "^4.0.2",
     "awesome-typescript-loader": "^5.2.1",
     "babel-loader": "^8.0.6",
