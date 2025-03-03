@@ -1,19 +1,19 @@
+import { h } from 'vue';
+
 const VueZoom = {
-  render(h) {
+  render() {
     return h(
       'div',
       {
         style: this.containerStyles,
-        on: {
-          mousemove: this.onMouseMove,
-          mouseenter: this.onMouseEnter,
-          mouseleave: this.onMouseLeave,
-          touchstart: this.onTouchStart,
-          touchmove: this.onTouchMove,
-          touchend: this.onTouchEnd,
-        },
+        onMousemove: this.onMouseMove,
+        onMouseenter: this.onMouseEnter,
+        onMouseleave: this.onMouseLeave,
+        onTouchstart: this.onTouchStart,
+        onTouchmove: this.onTouchMove,
+        onTouchend: this.onTouchEnd,
       },
-      [h('div', { style: this.contentStyles }, [this.$slots.default])],
+      [h('div', { style: this.contentStyles }, this.$slots.default())],
     );
   },
   props: {
